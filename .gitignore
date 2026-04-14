@@ -1,0 +1,14 @@
+# Entornos virtuales
+entorno_django/
+venv/
+env/
+
+# Archivos de Python
+__pycache__/
+*.pyc
+
+# Base de datos local (Opcional, pero recomendado)
+db.sqlite3
+
+# Archivos de Visual Studio Code
+.vscode/
