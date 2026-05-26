@@ -3,6 +3,7 @@
 {% block content %}
 <div class="text-center mb-5">
     <h1 class="display-5 fw-bold">Nuestro Blog</h1>
+    <a href="{% url 'crear_articulo' %}" class="btn btn-success mb-4">MÁS (+) Nuevo Artículo</a>
     <p class="lead text-muted">Contenido cargado dinámicamente desde la base de datos.</p>
 </div>
 
@@ -14,6 +15,9 @@
             <div class="card-body p-4">
                 <h2 class="card-title h4 text-dark fw-bold">{{ articulo.titulo }}</h2>
                 <p class="card-text text-secondary">{{ articulo.contenido|linebreaks|truncatewords:40 }}</p>
+                <hr>
+                <a href="{% url 'editar_articulo' articulo.id %}" class="btn btn-sm btn-primary">Editar</a>
+                <a href="{% url 'eliminar_articulo' articulo.id %}" class="btn btn-sm btn-danger">Eliminar</a>
                 <a href="#" class="btn btn-outline-primary btn-sm fw-bold">Leer más</a>
             </div>
         </div>

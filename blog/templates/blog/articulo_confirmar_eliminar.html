@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center">
+        <div class="alert alert-danger shadow-sm">
+            <h2>¿Estas seguro?</h2>
+            <p>Estás a punto de eliminar el articulo: <strong>"{{ articulo.titulo }}"</strong>.</p>
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Si, eliminar</button>
+                <a href="{% url 'blog' %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
