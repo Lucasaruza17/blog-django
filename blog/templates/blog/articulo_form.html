@@ -5,7 +5,7 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <h2 class="card-title">{{ accion }} Artículo</h2>
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit" class="btn btn-success">Guardar</button>

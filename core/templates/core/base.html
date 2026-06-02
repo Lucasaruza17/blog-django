@@ -13,15 +13,21 @@
             <a class="navbar-brand fw-bold" href="{% url 'inicio' %}">💻 Mi Proyecto</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'inicio' %}">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog' %}">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-warning" href="/admin/" target="_blank">Panel Admin</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><span class="nav-link text-info">Hola, {{ user.username }}</span></li>
+                        <li class="nav-item">
+                            <form method="post" action="{% url 'logout' %}" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-link nav-link text-danger">Cerrar Sesión</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Ingresar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'registro' %}">Registro</a></li>
+                    {% endif %}
+                    <li class="nav-item"><a class="nav-link text-warning" href="/admin/" target="_blank">Panel Admin</a></li>
                 </ul>
             </div>
         </div>

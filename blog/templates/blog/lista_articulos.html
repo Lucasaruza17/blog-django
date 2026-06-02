@@ -13,6 +13,9 @@
         {% for articulo in articulos %}
         <div class="card shadow-sm mb-4 border-0">
             <div class="card-body p-4">
+                {% if articulo.imagen %}
+                    <img src="{{ articulo.imagen.url }}" class="img-fluid rounded mb-3" alt="{{ articulo.titulo }}" style="max-height: 200px; object-fit: cover; width: 100%;">
+                {% endif %}
                 <h2 class="card-title h4 text-dark fw-bold">{{ articulo.titulo }}</h2>
                 <p class="card-text text-secondary">{{ articulo.contenido|linebreaks|truncatewords:40 }}</p>
                 <hr>
