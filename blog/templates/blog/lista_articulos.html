@@ -3,8 +3,8 @@
 {% block content %}
 <div class="text-center mb-5">
     <h1 class="display-5 fw-bold">Nuestro Blog</h1>
-    <a href="{% url 'crear_articulo' %}" class="btn btn-success mb-4">MÁS (+) Nuevo Artículo</a>
-    <p class="lead text-muted">Contenido cargado dinámicamente desde la base de datos.</p>
+    <a href="{% url 'crear_articulo' %}" class="btn btn-success mb-4">Nuevo Articulo</a>
+    <p class="lead text-muted">Contenido cargado dinamicamente desde la base de datos.</p>
 </div>
 
 <div class="row justify-content-center">
@@ -21,12 +21,12 @@
                 <hr>
                 <a href="{% url 'editar_articulo' articulo.id %}" class="btn btn-sm btn-primary">Editar</a>
                 <a href="{% url 'eliminar_articulo' articulo.id %}" class="btn btn-sm btn-danger">Eliminar</a>
-                <a href="#" class="btn btn-outline-primary btn-sm fw-bold">Leer más</a>
+                <a href="#" class="btn btn-outline-primary btn-sm fw-bold">Leer mas</a>
             </div>
         </div>
         {% empty %}
         <div class="alert alert-info text-center shadow-sm">
-            Aún no hay artículos. Ve al <a href="/admin/" class="alert-link">Panel de Administración</a> para crear el primero.
+            Aun no hay articulos. Ve al <a href="/admin/" class="alert-link">Panel de Administracion</a> para crear el primero.
         </div>
         {% endfor %}
 
