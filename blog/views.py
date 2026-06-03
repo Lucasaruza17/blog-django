@@ -10,7 +10,7 @@ def lista_articulos(request):
 
 def crear_articulo(request):
     if request.method == 'POST':
-        form = ArticuloForm(request.POST)
+        form = ArticuloForm(request.POST, request.FILES) 
         if form.is_valid():
             form.save()
             return redirect('blog') 
@@ -22,7 +22,7 @@ def crear_articulo(request):
 def editar_articulo(request, id):
     articulo = get_object_or_404(Articulo, id=id)
     if request.method == 'POST':
-        form = ArticuloForm(request.POST, instance=articulo)
+        form = ArticuloForm(request.POST, request.FILES, instance=articulo)
         if form.is_valid():
             form.save()
             return redirect('blog')
